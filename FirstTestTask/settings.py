@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'visited_links',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +78,7 @@ WSGI_APPLICATION = 'FirstTestTask.wsgi.application'
 CACHES = {
   "default": {
     "BACKEND": "django_redis.cache.RedisCache",
-    "LOCATION": "redis://192.168.0.105:6379/0",
+    "LOCATION": "redis://192.168.0.105:6379/",
     "OPTIONS": {
       "CLIENT_CLASS": "django_redis.client.DefaultClient"
     }
