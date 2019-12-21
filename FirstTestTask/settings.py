@@ -73,13 +73,15 @@ WSGI_APPLICATION = 'FirstTestTask.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+CACHES = {
+  "default": {
+    "BACKEND": "django_redis.cache.RedisCache",
+    "LOCATION": "redis://192.168.0.105:6379/0",
+    "OPTIONS": {
+      "CLIENT_CLASS": "django_redis.client.DefaultClient"
     }
 }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
