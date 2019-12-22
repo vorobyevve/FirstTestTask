@@ -6,12 +6,10 @@ from visited_links.models import Link
 
 # Create your views here.
 
-
 def remove_str_from_links(links):
     list_str_remove = ['https://', 'http://']
     for remove in list_str_remove:
         links = links.replace(remove, '', 1)
-        break
 
     list_special_characters = ['?', '/']
     for character in list_special_characters:
@@ -30,20 +28,6 @@ def generate_html(found_link):
     
 
 def links(request):
-    if request.method == 'GET':
-       found_link = []
-       
-       # Make a request
-       # For a test
-       found_link = ["ya.ru",
-                     "funbox.ru",
-                     "stackoverflow.com"
-                    ]
-
-       html = generate_html(found_link)
-       return HttpResponse(html)
-
-    elif request.method == 'POST':
         list_links = request.POST('links')
         processed_links = []
         for item in list_links:

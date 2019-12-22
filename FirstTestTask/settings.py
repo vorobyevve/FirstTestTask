@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'visited_links',
+    'visited_domains',
     'rest_framework',
 ]
 
@@ -74,11 +75,17 @@ WSGI_APPLICATION = 'FirstTestTask.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+}
 
 CACHES = {
   "default": {
     "BACKEND": "django_redis.cache.RedisCache",
-    "LOCATION": "redis://192.168.0.105:6379/",
+    "LOCATION": "redis://127.0.0.0:6379/",
     "OPTIONS": {
       "CLIENT_CLASS": "django_redis.client.DefaultClient"
     }
